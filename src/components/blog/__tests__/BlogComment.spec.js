@@ -36,6 +36,11 @@ describe('Testing BlogComment.vue', () => {
       },
       stubs: {
         Loader: '<div class="loader"></div>'
+      },
+      mocks: {
+        $texts: {
+          noComments: 'fake noComments'
+        }
       }
     })
   })
@@ -58,5 +63,14 @@ describe('Testing BlogComment.vue', () => {
     await flushPromise()
     const comments = wrapper.findAll('.comment')
     expect(comments.length).toBe(3)
+  })
+
+  it('show message if there is no comments', async () => {
+    await flushPromise()
+    // reset data comments to empty
+    wrapper.setData({
+      comments: []
+    })
+    expect(wrapper.contains('.no-comments')).toBe(true)
   })
 })

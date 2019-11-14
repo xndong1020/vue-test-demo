@@ -5,6 +5,7 @@
     <div class="comments" v-if="hasComments">
       <div v-for="comment in comments" :key="comment.id" class="comment">{{ comment }}</div>
     </div>
+    <div v-else class="no-comments">{{ $texts.noCommnets }}</div>
   </div>
 </template>
 
