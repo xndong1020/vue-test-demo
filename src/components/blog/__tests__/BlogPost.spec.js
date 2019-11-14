@@ -26,4 +26,28 @@ describe('Testing BlogPost.vue', () => {
   it('renders without errors', () => {
     expect(wrapper.contains('div.blog-post')).toBe(true)
   })
+
+  it('should not show body when created', () => {
+    expect(wrapper.contains('.body')).toBe(false)
+  })
+
+  it('should show body when title clicked once', () => {
+    const title = wrapper.find('h3.title')
+    title.trigger('click')
+    expect(wrapper.contains('.body')).toBe(true)
+  })
+
+  it('should toggle body when title clicked twice', () => {
+    const title = wrapper.find('h3.title')
+    title.trigger('click')
+    title.trigger('click')
+    expect(wrapper.contains('.body')).toBe(false)
+  })
+
+  it('should render correct content', () => {
+    const title = wrapper.find('h3.title')
+    title.trigger('click')
+    expect(wrapper.html()).toContain('some title')
+    expect(wrapper.html()).toContain('Lorem ipsum')
+  })
 })
