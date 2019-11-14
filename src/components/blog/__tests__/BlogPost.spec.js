@@ -19,6 +19,9 @@ describe('Testing BlogPost.vue', () => {
           body: 'Lorem ipsum',
           id: 1
         }
+      },
+      stubs: {
+        BlogComment: '<div class="blog-comments"></div>'
       }
     })
   })
@@ -55,5 +58,11 @@ describe('Testing BlogPost.vue', () => {
     const title = wrapper.find('h3.title')
     title.trigger('click')
     expect(wrapper.classes()).toContain('expanded')
+  })
+
+  it('should show comments when expanded', () => {
+    const title = wrapper.find('h3.title')
+    title.trigger('click')
+    expect(wrapper.contains('.blog-comments')).toBe(true)
   })
 })

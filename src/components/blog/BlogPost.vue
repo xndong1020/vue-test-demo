@@ -1,12 +1,19 @@
 <template>
   <div class="blog-post" :class="{ expanded: showBody }">
     <h3 class="title" @click.stop="showBody = !showBody">{{ post.title }}</h3>
-    <div v-if="showBody" class="body">{{ post.body }}</div>
+    <div v-if="showBody" class="body">
+      {{ post.body }}
+      <BlogComment :id="post.id" />
+    </div>
   </div>
 </template>
 
 <script>
+import BlogComment from "@/components/blog/BlogComment";
 export default {
+  components: {
+    BlogComment
+  },
   props: {
     post: {
       type: Object,
