@@ -50,4 +50,10 @@ describe('Testing BlogPost.vue', () => {
     expect(wrapper.html()).toContain('some title')
     expect(wrapper.html()).toContain('Lorem ipsum')
   })
+
+  it('add expanded class to expanded blog post', () => {
+    const title = wrapper.find('h3.title')
+    title.trigger('click')
+    expect(wrapper.classes()).toContain('expanded')
+  })
 })
