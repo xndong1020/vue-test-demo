@@ -3,7 +3,7 @@
     <h3 class="title" @click.stop="showBody = !showBody">{{ post.title }}</h3>
     <div v-if="showBody" class="body">
       {{ post.body }}
-      <BlogComment :id="post.id" />
+      <BlogComment v-if="$settings.enableComments" :id="post.id" />
     </div>
   </div>
 </template>

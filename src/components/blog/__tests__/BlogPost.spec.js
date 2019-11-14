@@ -22,6 +22,11 @@ describe('Testing BlogPost.vue', () => {
       },
       stubs: {
         BlogComment: '<div class="blog-comments"></div>'
+      },
+      mocks: {
+        $settings: {
+          enableComments: true
+        }
       }
     })
   })
@@ -60,7 +65,13 @@ describe('Testing BlogPost.vue', () => {
     expect(wrapper.classes()).toContain('expanded')
   })
 
-  it('should show comments when expanded', () => {
+  // it('should show comments when expanded', () => {
+  //   const title = wrapper.find('h3.title')
+  //   title.trigger('click')
+  //   expect(wrapper.contains('.blog-comments')).toBe(true)
+  // })
+
+  it('should show comments when $settings is enabled', () => {
     const title = wrapper.find('h3.title')
     title.trigger('click')
     expect(wrapper.contains('.blog-comments')).toBe(true)
