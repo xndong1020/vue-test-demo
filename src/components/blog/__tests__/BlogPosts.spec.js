@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import BlogPosts from '@/components/blog/BlogPosts'
+import BlogPost from '@/components/blog/BlogPost'
 import Loader from '@/components/Loader'
 import flushPromise from 'flush-promises'
 import { getters, mutations, actions } from '@/store/modules/blog'
@@ -39,7 +40,8 @@ describe('Testing BlogPosts.vue', () => {
       localVue,
       store,
       stubs: {
-        Loader
+        Loader,
+        BlogPost
       }
     })
   })
@@ -56,7 +58,7 @@ describe('Testing BlogPosts.vue', () => {
 
   it('shows correct number of posts', async () => {
     await flushPromise()
-    const posts = wrapper.findAll('.post')
+    const posts = wrapper.findAll('.blog-post')
     expect(posts.length).toBe(2)
   })
 })

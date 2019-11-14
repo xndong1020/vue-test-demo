@@ -2,16 +2,19 @@
   <div class="blog-posts">
     Blog Posts
     <Loader v-if="!this.hasBlogPosts" :text="`Loading posts`" />
-    <div v-for="post in blogPosts" class="post" :key="post.id">{{ post }}</div>
+    <BlogPost v-for="post in blogPosts" :key="post.id" :post="post" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import Loader from "@/components/Loader";
+import BlogPost from "@/components/blog/BlogPost";
+
 export default {
   components: {
-    Loader
+    Loader,
+    BlogPost
   },
   computed: {
     ...mapGetters("blog", ["blogPosts", "hasBlogPosts", "numberOfPosts"])
@@ -21,6 +24,4 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>
 
