@@ -1,0 +1,33 @@
+{
+  "Print to console": {
+    "scope": "javascript,typescript",
+    "prefix": "clg",
+    "body": ["console.log('$1', $1)"],
+    "description": "Log output to console"
+  },
+  "Unit Test Scaffold": {
+    "prefix": "unit",
+    "body": [
+      "import Vuex from 'vuex'",
+      "import { shallow, createLocalVue } from '@vue/test-utils'",
+      "import ${1} from '@/components/${1}'",
+      "\nconst localVue = createLocalVue()",
+      "localVue.use(Vuex)",
+      "\ndescribe('Testing ${1}.vue', () => {",
+      "\tlet wrapper",
+      "\tlet store",
+      "\tbeforeEach(() => {",
+      "\t\tstore = new Vuex.Store({})",
+      "\t\twrapper = shallow(${1}, { localVue, store }",
+      "\t})",
+      "\n\tit('', () => {})",
+      "})"
+    ],
+    "description": "Create unit test bilderplate"
+  },
+  "Scaffold it method": {
+    "prefix": "it",
+    "body": ["it('$1', () =>{", "\texpect().toBe()", "})"],
+    "description": "Create it method for unit test"
+  }
+}
