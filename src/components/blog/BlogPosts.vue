@@ -1,7 +1,7 @@
 <template>
   <div class="blog-posts">
     Blog Posts
-    <Loader :text="`Loading posts`" />
+    <Loader v-if="!this.hasBlogPosts" :text="`Loading posts`" />
   </div>
 </template>
 

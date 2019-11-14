@@ -19,7 +19,6 @@ export const actions = {
   getBlogPosts({ commit }) {
     return getBlogPosts()
       .then(res => {
-        console.log('action', res.data)
         commit('saveBlogPosts', res.data)
       })
       .catch(error => console.log('error', error))
