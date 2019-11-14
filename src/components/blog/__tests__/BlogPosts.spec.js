@@ -1,7 +1,6 @@
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import BlogPosts from '@/components/blog/BlogPosts'
-import BlogPost from '@/components/blog/BlogPost'
 import Loader from '@/components/Loader'
 import flushPromise from 'flush-promises'
 import { getters, mutations, actions } from '@/store/modules/blog'
@@ -41,7 +40,7 @@ describe('Testing BlogPosts.vue', () => {
       store,
       stubs: {
         Loader,
-        BlogPost
+        BlogPost: '<div class="blog-post"></div>'
       }
     })
   })
