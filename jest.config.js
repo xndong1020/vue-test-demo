@@ -17,6 +17,6 @@ module.exports = {
     '<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))'
   ],
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  collectCoverage: false,
-  collectCoverageFrom: ['<rootDir>/lib/**/*.vue', '!<rootDir>/test/**']
-};
+  collectCoverage: true,
+  collectCoverageFrom: ['<rootDir>/src/**/*.vue', '!<rootDir>/test/**']
+}
