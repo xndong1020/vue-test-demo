@@ -9,6 +9,7 @@
     "test:once": "jest"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "core-js": "^3.4.1",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
