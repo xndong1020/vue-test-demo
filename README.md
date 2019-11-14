@@ -11,3 +11,9 @@ npm i -D jest @vue/test-utils vue-jest babel-jest node-sass sass-loader jest-ser
 jest-serializer-vue for creating snap shot tests
 
 flush-promises Flush all pending resolved promise handlers. which are no longer needed Useful in tests. 
+
+
+reference:
+https://www.youtube.com/watch?v=g45rgz34kgM&t=309s
+https://github.com/MikaelEdebro/ezy-dev-session-jest
+
