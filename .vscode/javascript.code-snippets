@@ -9,7 +9,7 @@
     "prefix": "unit",
     "body": [
       "import Vuex from 'vuex'",
-      "import { shallow, createLocalVue } from '@vue/test-utils'",
+      "import { shallowMount, createLocalVue } from '@vue/test-utils'",
       "import ${1} from '@/components/${1}'",
       "\nconst localVue = createLocalVue()",
       "localVue.use(Vuex)",
@@ -18,9 +18,11 @@
       "\tlet store",
       "\tbeforeEach(() => {",
       "\t\tstore = new Vuex.Store({})",
-      "\t\twrapper = shallow(${1}, { localVue, store }",
+      "\t\twrapper = shallowMount(${1}, { localVue, store })",
       "\t})",
-      "\n\tit('', () => {})",
+      "\n\tit('renders without errors', () => {",
+      "\texpect(wrapper.contains('div')).toBe(true)",
+      "\t})",
       "})"
     ],
     "description": "Create unit test bilderplate"
