@@ -2,6 +2,7 @@
   <div class="blog-posts">
     Blog Posts
     <Loader v-if="!this.hasBlogPosts" :text="`Loading posts`" />
+    <div v-for="post in blogPosts" class="post" :key="post.id">{{ post }}</div>
   </div>
 </template>
 

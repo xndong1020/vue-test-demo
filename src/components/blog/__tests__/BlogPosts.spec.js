@@ -53,4 +53,10 @@ describe('Testing BlogPosts.vue', () => {
     await flushPromise()
     expect(wrapper.contains('.loader')).toBe(false)
   })
+
+  it('shows correct number of posts', async () => {
+    await flushPromise()
+    const posts = wrapper.findAll('.post')
+    expect(posts.length).toBe(2)
+  })
 })
