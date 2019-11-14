@@ -1,6 +1,7 @@
 import { getBlogPosts, getComments } from '@/api'
 export const state = {
-  blogPosts: []
+  blogPosts: [],
+  comments: []
 }
 
 export const getters = {
@@ -12,6 +13,10 @@ export const getters = {
 export const mutations = {
   saveBlogPosts(state, blogPosts) {
     state.blogPosts = blogPosts
+  },
+
+  saveBlogComments(state, blogComments) {
+    state.comments = blogComments
   }
 }
 
@@ -20,6 +25,14 @@ export const actions = {
     return getBlogPosts()
       .then(res => {
         commit('saveBlogPosts', res.data)
+      })
+      .catch(error => console.log('error', error))
+  },
+  getComments({ commit }, postId) {
+    return getComments(postId)
+      .then(res => {
+        commit('saveBlogComments', res.data)
+        return res.data
       })
       .catch(error => console.log('error', error))
   }
