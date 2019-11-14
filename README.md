@@ -1,19 +1,15 @@
 # jest-vue-demo
 
-## Project setup
+packages we need for doing unit testing
 ```
-yarn install
+npm i -D jest @vue/test-utils vue-jest babel-jest node-sass sass-loader jest-serializer-vue flush-promises 
 ```
+@vue/test-utils makes mounting new components lot easier, and have some helper methods
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+jest-serializer-vue for creating snap shot tests
 
-### Compiles and minifies for production
-```
-yarn build
-```
+flush-promises flush resolved promises which are no longer needed
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
