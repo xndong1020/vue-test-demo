@@ -2,7 +2,9 @@
   <div class="blog-comments">
     Comments for {{ id }}
     <Loader v-if="showLoader" :text="`Loading comments`" />
-    <div v-for="comment in comments" :key="comment.id">{{ comment }}</div>
+    <div class="comments" v-if="hasComments">
+      <div v-for="comment in comments" :key="comment.id" class="comment">{{ comment }}</div>
+    </div>
   </div>
 </template>
 
@@ -25,13 +27,22 @@ export default {
       showLoader: false
     };
   },
+  computed: {
+    hasComments() {
+      return this.commentsLoaded && !!this.comments.length;
+    }
+  },
   mounted() {
     this.showLoader = true;
-    this.$store.dispatch("blog/getComments", this.id).then(data => {
-      this.comments = data;
-      this.commentsLoaded = true;
-      this.showLoader = false;
-    });
+    this.$store
+      .dispatch("blog/getComments", this.id)
+      .then(data => {
+        this.comments = data;
+        this.commentsLoaded = true;
+      })
+      .finally(() => {
+        this.showLoader = false;
+      });
   }
 };
 </script>

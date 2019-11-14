@@ -15,7 +15,7 @@ describe('Testing BlogComment.vue', () => {
       getComments: jest.fn(() => {
         return new Promise(resolve => {
           global.process.nextTick(() => {
-            resolve({ data: [{ title: 'comment 1' }, { title: 'comment 2' }] })
+            resolve([{}, {}, {}])
           })
         })
       })
@@ -52,5 +52,11 @@ describe('Testing BlogComment.vue', () => {
     expect(wrapper.contains('.loader')).toBe(true)
     await flushPromise()
     expect(wrapper.contains('.loader')).toBe(false)
+  })
+
+  it('should load comments with correct length', async () => {
+    await flushPromise()
+    const comments = wrapper.findAll('.comment')
+    expect(comments.length).toBe(3)
   })
 })
