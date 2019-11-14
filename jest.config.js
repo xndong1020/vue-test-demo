@@ -2,6 +2,7 @@ module.exports = {
   // tell Jest to handle `*.vue` files
   moduleFileExtensions: ['js', 'json', 'vue'],
   moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
     '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
       'jest-transform-stub'
   },
