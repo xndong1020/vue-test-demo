@@ -75,5 +75,9 @@ describe('Testing BlogPost.vue', () => {
     const title = wrapper.find('h3.title')
     title.trigger('click')
     expect(wrapper.contains('.blog-comments')).toBe(true)
+
+    // now set enableComments to false, and BlogComment should be hided
+    wrapper.vm.$settings.enableComments = false
+    expect(wrapper.contains('.blog-comments')).toBe(false)
   })
 })
